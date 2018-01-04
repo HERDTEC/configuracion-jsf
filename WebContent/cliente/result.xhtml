@@ -5,14 +5,13 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
-        Index
+    <h:body>        
+        <ul>
+            <li>Nombre: <h:outputText value="#{personaMB.nombre}" /></li>
+            <li>Apellido: <h:outputText value="#{personaMB.apellido}" /></li>
+        </ul>
         <h:form>
-            <h:commandLink action="/pag01" value="Ir a Page01" /> <br />
-            <h:commandLink action="/pag02" value="Ir a Page02" /> <br />
-            <h:commandLink action="/cliente/cliente" value="Ir a Cliente" /> <br />
-             <h:commandLink action="/admin/panel" value="Ir a Panel" /> <br />
-            
+            <h:commandLink action="/cliente/cliente" value="Insertar otro cliente" />
         </h:form>
     </h:body>
 </html>

@@ -652,6 +652,9 @@ function setDocumentScrollTop(ypos)
     &lt;<span class="pl-ent">welcome-file</span>&gt;faces/index.xhtml&lt;/<span class="pl-ent">welcome-file</span>&gt;
 &lt;/<span class="pl-ent">welcome-file-list</span>&gt;</pre>
 </div> 
+<blockquote> 
+ <p>Si el welcome files no tiene el path <code>faces/</code> especificado en el servelet jsf, no se mostraran los componentes jsf</p> 
+</blockquote> 
 <ol start="5"> 
  <li>Click derecho en la carpeta WebContent&gt; New &gt; Xhtml Page</li> 
 </ol> 
@@ -675,6 +678,14 @@ function setDocumentScrollTop(ypos)
 </ol> 
 <blockquote> 
  <p>Como otra opcion entrar al archivo en blanco index.xhtml, precionar las teclas Ctrl+Barra Espaciadora, y seleccionar Blank Facelets Page, y hacer los cambios necesarios para obtener el codigo almacenado en el snnipet.</p> 
-</blockquote>
+</blockquote> 
+<h2> <a id="managedbeans" class="anchor" href="#managedbeans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ManagedBeans</h2> 
+<p>Controladores en jsf</p> 
+<h3> <a id="crear-un-manage-bean-en-eclipse" class="anchor" href="#crear-un-manage-bean-en-eclipse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crear un manage bean en eclipse</h3> 
+<ol> 
+ <li>Crear un paquete para agrupar los controladores</li> 
+ <li>Click Derecho en el paquete &gt; New &gt; Class</li> 
+ <li>Colocar antes de la declaracion de la clase las anotaciones <code>@ManagedBean</code> y <code>@RequestScoped</code> </li> 
+</ol>
 </body>
 </html>

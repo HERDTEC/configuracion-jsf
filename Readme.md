@@ -10,6 +10,7 @@
     <welcome-file>faces/index.xhtml</welcome-file>
 </welcome-file-list>
 ```
+> Si el welcome files no tiene el path `faces/` especificado en el servelet jsf, no se mostraran los componentes jsf
 5. Click derecho en la carpeta WebContent> New > Xhtml Page
 
 > Si el archivo esta en blanco crear un snippet. window > show Views snipets, posteriormente click derecho en la ventana de snippets > Customize y anadir las categoria e item necesario, adicionalmente agregar el codigo.
@@ -28,4 +29,13 @@
 ```
 6. Agregar el snippet al archivo index.xhtml
 > Como otra opcion entrar al archivo en blanco index.xhtml, precionar las teclas Ctrl+Barra Espaciadora, y seleccionar Blank Facelets Page, y hacer los cambios necesarios para obtener el codigo almacenado en el snnipet.
+
+## ManagedBeans
+Controladores en jsf
+
+### Crear un manage bean en eclipse
+
+1. Crear un paquete para agrupar los controladores
+2. Click Derecho en el paquete  > New > Class
+3. Colocar antes de la declaracion de la clase las anotaciones `@ManagedBean` y `@RequestScoped`
 
