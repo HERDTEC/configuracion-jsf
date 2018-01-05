@@ -39,3 +39,32 @@ Controladores en jsf
 2. Click Derecho en el paquete  > New > Class
 3. Colocar antes de la declaracion de la clase las anotaciones `@ManagedBean` y `@RequestScoped`
 
+## Validator
+1. Crear paquete donde se agrupen a los validadores.
+2. Click derecho en el paquete > New > Class
+3. Antes de la clase usar la anotacion `@FacesValidator("nvalidador")`
+4. Hacer que la clase implemente la interfaz `Validator`.
+6. Hacer que la clase implemente los metodos de la interfaz y programar la validacion.
+```java
+ @Override
+    public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
+     
+        String ncelular = o.toString().trim();
+        
+        if(ncelular.length() == 0){
+            throw new ValidatorException( new FacesMessage("Ingrese celular") );
+        }
+        else {
+            String erTexto = "^9\\d\\d-\\d\\d\\d-\\d\\d\\d$";
+            boolean ok = Pattern.matches(erTexto, ncelular);
+
+            if (!ok) {
+                throw new ValidatorException(new FacesMessage("Formato debe ser 9##-###-###"));
+            }
+        }
+        
+    }
+```
+
+
+

@@ -686,6 +686,34 @@ function setDocumentScrollTop(ypos)
  <li>Crear un paquete para agrupar los controladores</li> 
  <li>Click Derecho en el paquete &gt; New &gt; Class</li> 
  <li>Colocar antes de la declaracion de la clase las anotaciones <code>@ManagedBean</code> y <code>@RequestScoped</code> </li> 
-</ol>
+</ol> 
+<h2> <a id="validator" class="anchor" href="#validator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validator</h2> 
+<ol> 
+ <li>Crear paquete donde se agrupen a los validadores.</li> 
+ <li>Click derecho en el paquete &gt; New &gt; Class</li> 
+ <li>Antes de la clase usar la anotacion <code>@FacesValidator(&quot;nvalidador&quot;)</code> </li> 
+ <li>Hacer que la clase implemente la interfaz <code>Validator</code>.</li> 
+ <li>Hacer que la clase implemente los metodos de la interfaz y programar la validacion.</li> 
+</ol> 
+<div class="highlight highlight-source-java">
+ <pre> <span class="pl-k">@Override</span>
+    <span class="pl-k">public</span> <span class="pl-k">void</span> validate(<span class="pl-smi">FacesContext</span> fc, <span class="pl-smi">UIComponent</span> uic, <span class="pl-smi">Object</span> o) throws <span class="pl-smi">ValidatorException</span> {
+     
+        <span class="pl-smi">String</span> ncelular <span class="pl-k">=</span> o<span class="pl-k">.</span>toString()<span class="pl-k">.</span>trim();
+        
+        <span class="pl-k">if</span>(ncelular<span class="pl-k">.</span>length() <span class="pl-k">==</span> <span class="pl-c1">0</span>){
+            <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">ValidatorException</span>( <span class="pl-k">new</span> <span class="pl-smi">FacesMessage</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Ingrese celular<span class="pl-pds">&quot;</span></span>) );
+        }
+        <span class="pl-k">else</span> {
+            <span class="pl-smi">String</span> erTexto <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>^9<span class="pl-cce">\\</span>d<span class="pl-cce">\\</span>d-<span class="pl-cce">\\</span>d<span class="pl-cce">\\</span>d<span class="pl-cce">\\</span>d-<span class="pl-cce">\\</span>d<span class="pl-cce">\\</span>d<span class="pl-cce">\\</span>d$<span class="pl-pds">&quot;</span></span>;
+            <span class="pl-k">boolean</span> ok <span class="pl-k">=</span> <span class="pl-smi">Pattern</span><span class="pl-k">.</span>matches(erTexto, ncelular);
+
+            <span class="pl-k">if</span> (<span class="pl-k">!</span>ok) {
+                <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">ValidatorException</span>(<span class="pl-k">new</span> <span class="pl-smi">FacesMessage</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Formato debe ser 9##-###-###<span class="pl-pds">&quot;</span></span>));
+            }
+        }
+        
+    }</pre>
+</div>
 </body>
 </html>
