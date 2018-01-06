@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+    		<h:form>
+    			<p:panel header="primefaces" footer="AprendeJava">
+	       		<h:panelGrid column="3">
+	       			<h:outputText value="Nombre:" />
+	       			<p:inputText value="#{data.nombre}"
+	       						 id="nombre" 
+	       						 required="true"
+	       						 requiredMessage="Ingrese su nombre"
+	       						 validatorMessage="Ingrese un texto [3:13]">
+	       				<f:validateLength minimum="3" maximum="13"></f:validateLength>
+	       						 
+	       			</p:inputText>
+	       			<p:message for="nombre"/>
+	       		</h:panelGrid>
+	       		<p:commandButton value="Enviar Datos" 
+	       						 action="result" 
+	       						 type="submit"
+	       						 ajax="false"/>
+	       </p:panel>
+    		</h:form>
+    </h:body>
+</html>
+

@@ -679,14 +679,78 @@ function setDocumentScrollTop(ypos)
 <blockquote> 
  <p>Como otra opcion entrar al archivo en blanco index.xhtml, precionar las teclas Ctrl+Barra Espaciadora, y seleccionar Blank Facelets Page, y hacer los cambios necesarios para obtener el codigo almacenado en el snnipet.</p> 
 </blockquote> 
+<h3> <a id="agregar-primefaces" class="anchor" href="#agregar-primefaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Agregar primefaces</h3> 
+<ol> 
+ <li>Agregar al pom.xml</li> 
+</ol> 
+<div class="highlight highlight-text-xml">
+ <pre>&lt;<span class="pl-ent">dependency</span>&gt;
+	&lt;<span class="pl-ent">groupId</span>&gt;org.primefaces&lt;/<span class="pl-ent">groupId</span>&gt;
+	&lt;<span class="pl-ent">artifactId</span>&gt;primefaces&lt;/<span class="pl-ent">artifactId</span>&gt;
+	&lt;<span class="pl-ent">version</span>&gt;6.1&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre>
+</div> 
+<ol start="2"> 
+ <li>En la cabecera del documento xhtml anadir:</li> 
+</ol> 
+<pre><code> xmlns:p=&quot;http://primefaces.org/ui&quot;
+</code></pre> 
+<h4> <a id="definir-tema-primefaces" class="anchor" href="#definir-tema-primefaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.primefaces.org/themes.html" rel="nofollow">Definir Tema Primefaces</a> </h4> 
+<ol> 
+ <li>Agregar al pom.xml</li> 
+</ol> 
+<div class="highlight highlight-text-xml">
+ <pre>&lt;<span class="pl-ent">dependency</span>&gt;  
+    &lt;<span class="pl-ent">groupId</span>&gt;org.primefaces.themes&lt;/<span class="pl-ent">groupId</span>&gt;  
+    &lt;<span class="pl-ent">artifactId</span>&gt;dot-luv&lt;/<span class="pl-ent">artifactId</span>&gt;  
+    &lt;<span class="pl-ent">version</span>&gt;1.0.10&lt;/<span class="pl-ent">version</span>&gt;  
+&lt;/<span class="pl-ent">dependency</span>&gt;  </pre>
+</div> 
+<blockquote> 
+ <p>Para bajarse todos los comunity themes</p> 
+</blockquote> 
+<div class="highlight highlight-text-xml">
+ <pre>	&lt;<span class="pl-ent">dependency</span>&gt;  
+	    &lt;<span class="pl-ent">groupId</span>&gt;org.primefaces.themes&lt;/<span class="pl-ent">groupId</span>&gt;  
+	    &lt;<span class="pl-ent">artifactId</span>&gt;all-themes&lt;/<span class="pl-ent">artifactId</span>&gt;  
+	    &lt;<span class="pl-ent">version</span>&gt;1.0.10&lt;/<span class="pl-ent">version</span>&gt;  
+	&lt;/<span class="pl-ent">dependency</span>&gt;  </pre>
+</div> 
+<ol start="2"> 
+ <li>En el archivo anadir el tema descargado</li> 
+</ol> 
+<div class="highlight highlight-text-xml">
+ <pre>&lt;<span class="pl-ent">context-param</span>&gt;  
+    &lt;<span class="pl-ent">param-name</span>&gt;primefaces.THEME&lt;/<span class="pl-ent">param-name</span>&gt;  
+    &lt;<span class="pl-ent">param-value</span>&gt;dot-luv&lt;/<span class="pl-ent">param-value</span>&gt;  
+&lt;/<span class="pl-ent">context-param</span>&gt; </pre>
+</div> 
+<blockquote> 
+ <p>En el caso de algun error con el archivo pom.xml</p> 
+</blockquote> 
+<pre><code>1. Instalar WGET
+2. wget -r -np -nH --cut-dirs=3 -R index.html http://repository.primefaces.org/org/primefaces/themes/
+3. Mover los temas a la carpeta `~/.m2/repository/org/primefaces/themes`
+4. Actualizar el indice del repositorio local.
+</code></pre> 
 <h2> <a id="managedbeans" class="anchor" href="#managedbeans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ManagedBeans</h2> 
-<p>Controladores en jsf</p> 
+<p>Unidad de trabajo elemental de JSF que atiende solicitudes de los clientes y gestionada por el servidor. En el patron MVC, representa el Modelo. Las paginas JSF, pueden acceder al ManagedBean a traves de sus etiquetas, ya sean a sus propiedades o metodos.</p> 
 <h3> <a id="crear-un-manage-bean-en-eclipse" class="anchor" href="#crear-un-manage-bean-en-eclipse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crear un manage bean en eclipse</h3> 
 <ol> 
  <li>Crear un paquete para agrupar los controladores</li> 
  <li>Click Derecho en el paquete &gt; New &gt; Class</li> 
  <li>Colocar antes de la declaracion de la clase las anotaciones <code>@ManagedBean</code> y <code>@RequestScoped</code> </li> 
+ <li>Implementar la interfaz serializable</li> 
 </ol> 
+<h3> <a id="scopes" class="anchor" href="#scopes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scopes</h3> 
+<ul> 
+ <li>Request</li> 
+ <li>View</li> 
+ <li>Session</li> 
+ <li>Application</li> 
+ <li>Custom</li> 
+ <li>None</li> 
+</ul> 
 <h2> <a id="validator" class="anchor" href="#validator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validator</h2> 
 <ol> 
  <li>Crear paquete donde se agrupen a los validadores.</li> 
